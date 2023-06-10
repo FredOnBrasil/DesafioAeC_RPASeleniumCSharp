@@ -3,8 +3,10 @@ using DesafioAeC_RPA.Models;
 using MahApps.Metro.Controls;
 using OpenQA.Selenium;
 using System.Collections.ObjectModel;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using OpenQA.Selenium.Support.UI;
 
 namespace DesafioAeC_RPA
 {
@@ -12,7 +14,8 @@ namespace DesafioAeC_RPA
     {
         public ObservableCollection<Item> Items { get; set; }
         internal IWebDriver driver;
-        internal IJavaScriptExecutor js;
+        internal IWebElement CampoPesquisa;
+        internal IJavaScriptExecutor JavaScriptExecutor;
 
         public MainWindow()
         {
@@ -21,11 +24,9 @@ namespace DesafioAeC_RPA
             Items = new ObservableCollection<Item>
             {
                 new Item { Nome = "Action 1: Abre Site", ExecuteCommand = new RelayCommand(Abrir_Site) },
-                new Item { Nome = "Action 2: Seleciona Campo pesquisa", ExecuteCommand = new RelayCommand(SelecionaCampoPesquisa) },
-                new Item { Nome = "Action 3: Executa a pesquisa e obtém os resultados", ExecuteCommand = new RelayCommand(ExecuteItem3) },
-                new Item { Nome = "Action 4: Abre Site", ExecuteCommand = new RelayCommand(Abrir_Site) },
-                new Item { Nome = "Action 5: Seleciona Campo pesquisa", ExecuteCommand = new RelayCommand(SelecionaCampoPesquisa) },
-                new Item { Nome = "Action 6: Executa a pesquisa e obtém os resultados", ExecuteCommand = new RelayCommand(ExecuteItem3) }
+                new Item { Nome = "Action 2: Preenche Campo pesquisa", ExecuteCommand = new RelayCommand(PreencheCampoPesquisa) },
+                new Item { Nome = "Action 4: Clica em Pesquisar", ExecuteCommand = new RelayCommand(ClickPesquisar) },
+                new Item { Nome = "Action 5: Verifica resultados", ExecuteCommand = new RelayCommand(VerificaResultados) },
             };
             DataContext = this;
             _appSetup = new AppSetup(this);
@@ -42,18 +43,14 @@ namespace DesafioAeC_RPA
                     {
                         case "Alura":
                             driver.Navigate().GoToUrl(App.UrlAlura);
+                            resultados.Items.Add($"Ação executada: " + DateTime.Now);
                             break;
 
                         default:
                             driver.Navigate().GoToUrl(App.UrlDefault);
+                            resultados.Items.Add($"Ação executada sem seleção de URL: " + DateTime.Now);
                             break;
                     }
-                    resultados.Items.Add($"Ação executada: " + DateTime.Now);
-                }
-                else
-                {
-                    driver.Navigate().GoToUrl(App.UrlDefault);
-                    resultados.Items.Add($"Ação executada sem seleção de URL: " + DateTime.Now);
                 }
             }
             catch (Exception e)
@@ -62,14 +59,63 @@ namespace DesafioAeC_RPA
             }
         }
 
-        private void SelecionaCampoPesquisa()
+        private void PreencheCampoPesquisa()
         {
-            // Executar a lógica para o Item 2
+            CampoPesquisa = driver.FindElement(By.Id("header-barraBusca-form-campoBusca"));
+            try
+            {
+                //if (CampoPesquisa.Displayed)
+                //{
+                    CampoPesquisa.Clear();
+                    CampoPesquisa.SendKeys(TermoPesquisa.Text);
+                    resultados.Items.Add($"Ação executada: " + DateTime.Now);
+               // }
+            }
+            catch (Exception e)
+            {
+                resultados.Items.Add("Elemento não encontrado na tela.");
+                resultados.Items.Add("Erro ao manipular elemento." + e.Message);
+            }
         }
 
-        private void ExecuteItem3()
+        private void ClickPesquisar()
+        {
+            //usando explicit wait para casos em que o elemento não é encontrado
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(6));
+
+            try
+            {
+                var btPesquisa = wait.Until(d =>
+                {
+                    var botao = driver.FindElement(By.XPath("/html/body/div[2]/div/header/div/nav/div[2]/div/form/button"));
+                    if (botao.Displayed)
+                        return botao;
+                    return null;
+                });
+                btPesquisa.Click();
+                resultados.Items.Add($"Ação executada: " + DateTime.Now);
+
+            }
+            catch (Exception e)
+            {
+                resultados.Items.Add("Elemento não encontrado na tela.");
+                resultados.Items.Add("Erro ao clicar em elemento." + e.Message);
+            }
+        }
+
+        private void VerificaResultados()
         {
             // Executar a lógica para o Item 3
+        }
+
+        private void ExecutarJavascript(string script, IWebElement elemento)
+        {
+            JavaScriptExecutor = (IJavaScriptExecutor)driver;
+            script = script.Replace("\\", "");
+
+            JavaScriptExecutor.ExecuteScript(script, elemento);
+
+            //Thread.Sleep(6000);
         }
 
         private int currentItemIndex = 0;
@@ -109,6 +155,9 @@ namespace DesafioAeC_RPA
         {
             Item currentItem = Items[currentItemIndex];
 
+            // Selecionar o item atual (opcional)
+            ListView.SelectedItem = currentItem;
+
             // Rolar o ListView para o item atual
             ListView.ScrollIntoView(currentItem);
 
@@ -117,19 +166,17 @@ namespace DesafioAeC_RPA
             // Lógica de execução para o item atual
             currentItem.ExecuteCommand.Execute(null);
 
-            // Selecionar o item atual (opcional)
-            ListView.SelectedItem = currentItem;
-
             resultados.Items.Add($"Fim execução: {currentItem.Nome}");
 
             // Aguardar a finalização da execução do item atual
-            await Task.Delay(1000); // Exemplo: espera de 1 segundo
+            await Task.Delay(600); // Exemplo: espera de 1 segundo
         }
 
         private void StartProcess_OnClick(object sender, RoutedEventArgs e)
         {
+            resultados.Items.Clear();
             _appSetup.AppSetupInicialization();
-            ExecuteItemsLoop();
+            _ = ExecuteItemsLoop();
         }
     }
 }

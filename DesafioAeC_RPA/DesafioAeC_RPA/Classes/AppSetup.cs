@@ -16,6 +16,6 @@ public class AppSetup
     {
         _mainWindow.driver = DesafioAeC_RPA.Models.WebActions.SelecionaBrowserMaximizaTela("Chrome");
         _mainWindow.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
-        _mainWindow.js = (IJavaScriptExecutor)_mainWindow.driver;
+        _mainWindow.JavaScriptExecutor = (IJavaScriptExecutor)_mainWindow.driver;
     }
 }
