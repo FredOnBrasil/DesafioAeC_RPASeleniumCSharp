@@ -1,8 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "/4KnigdoM8mryS1A0LlISyzPKqbufJbqeqdGgWUGuBx8eWdVpLCkzp34uN1OpoKopsVB4NJOYg3aC3nMSypV8A==",
+  "dgSpecHash": "W3c3QH+3yDWlxxrefzwX1uhCZjHxTvovuurBFStNgzfcLXH14l2KwXoRY6HXVSWmd3Ufandwr/HtFcbqRsHXPw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Administrator\\source\\repos\\FredOnBrasil\\DesafioAeC_RPASeleniumCSharp\\DesafioAeC_RPA\\DesafioAeC_RPA\\DesafioAeC_RPA.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\controlzex\\4.4.0\\controlzex.4.4.0.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\mahapps.metro\\2.4.9\\mahapps.metro.2.4.9.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\selenium.support\\4.10.0\\selenium.support.4.10.0.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\selenium.webdriver\\4.10.0\\selenium.webdriver.4.10.0.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\selenium.webdriver.chromedriver\\114.0.5735.9000\\selenium.webdriver.chromedriver.114.0.5735.9000.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
+  ],
   "logs": []
 }
