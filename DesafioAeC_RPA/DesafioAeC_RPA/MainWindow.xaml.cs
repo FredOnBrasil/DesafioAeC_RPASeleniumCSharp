@@ -48,17 +48,17 @@ namespace DesafioAeC_RPA
                             driver.Navigate().GoToUrl(App.UrlDefault);
                             break;
                     }
-                    ListView.Items.Add($"Ação executada: {this.Name} _" + DateTime.Now.Date);
+                    resultados.Items.Add($"Ação executada: " + DateTime.Now);
                 }
                 else
                 {
                     driver.Navigate().GoToUrl(App.UrlDefault);
-                    resultados.Items.Add($"Ação executada sem seleção de URL: {this.Name} _" + DateTime.Now.Date);
+                    resultados.Items.Add($"Ação executada sem seleção de URL: " + DateTime.Now);
                 }
             }
             catch (Exception e)
             {
-                resultados.Items.Add($"Erro ao executar ação: {this.Name} - " + e.Message);
+                resultados.Items.Add($"Erro ao executar ação: " + e.Message);
             }
         }
 
@@ -119,6 +119,8 @@ namespace DesafioAeC_RPA
 
             // Selecionar o item atual (opcional)
             ListView.SelectedItem = currentItem;
+
+            resultados.Items.Add($"Fim execução: {currentItem.Nome}");
 
             // Aguardar a finalização da execução do item atual
             await Task.Delay(1000); // Exemplo: espera de 1 segundo
