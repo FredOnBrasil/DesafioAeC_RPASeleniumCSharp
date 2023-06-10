@@ -53,12 +53,12 @@ namespace DesafioAeC_RPA
                 else
                 {
                     driver.Navigate().GoToUrl(App.UrlDefault);
-                    ListView.Items.Add($"Ação executada sem seleção de URL: {this.Name} _" + DateTime.Now.Date);
+                    resultados.Items.Add($"Ação executada sem seleção de URL: {this.Name} _" + DateTime.Now.Date);
                 }
             }
             catch (Exception e)
             {
-                ListView.Items.Add($"Erro ao executar ação: {this.Name} - " + e.Message);
+                resultados.Items.Add($"Erro ao executar ação: {this.Name} - " + e.Message);
             }
         }
 
@@ -112,7 +112,7 @@ namespace DesafioAeC_RPA
             // Rolar o ListView para o item atual
             ListView.ScrollIntoView(currentItem);
 
-            ListView.Items.Add($"Executando o item: {currentItem.Nome}");
+            resultados.Items.Add($"Executando o item: {currentItem.Nome}");
 
             // Lógica de execução para o item atual
             currentItem.ExecuteCommand.Execute(null);
