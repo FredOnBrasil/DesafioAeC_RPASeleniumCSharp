@@ -161,6 +161,8 @@ namespace DesafioAeC_RPA
             // Rolar o ListView para o item atual
             ListView.ScrollIntoView(currentItem);
 
+            await Task.Delay(300);
+
             resultados.Items.Add($"Executando o item: {currentItem.Nome}");
 
             // Lógica de execução para o item atual
@@ -169,7 +171,7 @@ namespace DesafioAeC_RPA
             resultados.Items.Add($"Fim execução: {currentItem.Nome}");
 
             // Aguardar a finalização da execução do item atual
-            await Task.Delay(600); // Exemplo: espera de 1 segundo
+            await Task.Delay(600);
         }
 
         private void StartProcess_OnClick(object sender, RoutedEventArgs e)
