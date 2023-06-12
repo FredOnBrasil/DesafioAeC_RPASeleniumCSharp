@@ -87,7 +87,7 @@ namespace DesafioAeC_RPA
             {
                 var btPesquisa = wait.Until(d =>
                 {
-                    var botao = driver.FindElement(By.XPath("/html/body/div[2]/div/header/div/nav/div[2]/div/form/button"));
+                    var botao = driver.FindElement(By.XPath("//button"));
                     if (botao.Displayed)
                         return botao;
                     return null;

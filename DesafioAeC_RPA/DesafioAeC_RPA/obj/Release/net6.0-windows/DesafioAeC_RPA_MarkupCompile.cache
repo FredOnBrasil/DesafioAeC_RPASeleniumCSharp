@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Debug\net6.0-windows\
+C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Release\net6.0-windows\
 DesafioAeC_RPA
 none
 false
-TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+TRACE;RELEASE;NET;NET6_0;NETCOREAPP
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\App.xaml
 11407045341
 21456713846
@@ -16,5 +16,5 @@ C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\De
 2002074193857
 MainWindow.xaml;
 
-False
+True
 

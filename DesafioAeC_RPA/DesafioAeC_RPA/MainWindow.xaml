@@ -128,7 +128,7 @@
 
             <ListView x:Name="ListView" 
                       Style="{DynamicResource MahApps.Styles.ListView}"
-                      mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True"
+                      Padding="60,3"
                       SelectionMode="Single"
                       ItemsSource="{Binding Items}">
                 <ListView.ItemTemplate>

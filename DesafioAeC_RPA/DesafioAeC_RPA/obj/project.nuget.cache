@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "W3c3QH+3yDWlxxrefzwX1uhCZjHxTvovuurBFStNgzfcLXH14l2KwXoRY6HXVSWmd3Ufandwr/HtFcbqRsHXPw==",
+  "dgSpecHash": "S3QMqwiJ/He2EW1BPl4h2ld8zTgQE17wDvmrI1RkI4o97Azg77lESncDQn4Hto8YsI2QLI06Xb3gDA1FsG6OKg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Administrator\\source\\repos\\FredOnBrasil\\DesafioAeC_RPASeleniumCSharp\\DesafioAeC_RPA\\DesafioAeC_RPA\\DesafioAeC_RPA.csproj",
   "expectedPackageFiles": [
@@ -11,7 +11,11 @@
     "C:\\Users\\Administrator\\.nuget\\packages\\selenium.support\\4.10.0\\selenium.support.4.10.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\selenium.webdriver\\4.10.0\\selenium.webdriver.4.10.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\selenium.webdriver.chromedriver\\114.0.5735.9000\\selenium.webdriver.chromedriver.114.0.5735.9000.nupkg.sha512",
-    "C:\\Users\\Administrator\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
+    "C:\\Users\\Administrator\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.16\\microsoft.windowsdesktop.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.16\\microsoft.netcore.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.16\\microsoft.aspnetcore.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.16\\microsoft.netcore.app.host.win-x64.6.0.16.nupkg.sha512"
   ],
   "logs": []
 }
