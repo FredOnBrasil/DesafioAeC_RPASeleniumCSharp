@@ -8,9 +8,6 @@ namespace DesafioAeC_RPA
     /// </summary>
     public partial class App : Application
     {
-        public static string UrlAlura = "https://www.alura.com.br";
-        public static string UrlDefault = "https://www.google.com";
-
         //configurando dados do banco de dados
         public static string folderPath = Environment.CurrentDirectory;
 

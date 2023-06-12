@@ -54,3 +54,5 @@ C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\De
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Debug\net6.0-windows\DesafioAeC_RPA.pdb
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Debug\net6.0-windows\DesafioAeC_RPA.genruntimeconfig.cache
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Debug\net6.0-windows\ref\DesafioAeC_RPA.dll
+C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Debug\net6.0-windows\ViewModels\PesquisasViewModel.g.cs
+C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Debug\net6.0-windows\ViewModels\PesquisasViewModel.baml

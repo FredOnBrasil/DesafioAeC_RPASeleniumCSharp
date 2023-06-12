@@ -1,0 +1,117 @@
+﻿<mah:MetroWindow x:Class="DesafioAeC_RPA.ViewModels.PesquisasViewModel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesafioAeC_RPA.ViewModels"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        Height="558" 
+        Width="900"
+        TitleBarHeight="30"
+        WindowStartupLocation="CenterScreen"
+        ShowIconOnTitleBar="True"
+        Title="PESQUISAS:">
+    <mah:MetroWindow.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/VS/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/vs/button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/controls.buttons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/controls.groupbox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/controls.expander.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/light.amber.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+    </mah:MetroWindow.Resources>
+    <Grid>
+        <GroupBox Header="Dados de Cursos Obtidos:"
+                  Margin="6"
+                  Style="{DynamicResource MahApps.Styles.GroupBox}">
+        <StackPanel HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Margin="3">
+            <ListView Margin="6"
+                              MinHeight="465"
+                              MaxHeight="465"
+                              mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True"
+                              x:Name="ListViewPesquisas"
+                              BorderBrush="DarkOliveGreen"
+                              BorderThickness="1"
+                              Style="{DynamicResource MahApps.Styles.ListView.Virtualized}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                            <Label Content="Id: " 
+                               Grid.Column="0" 
+                               Grid.Row="0"/>
+                            <TextBlock Text="{Binding Id}" 
+                                   HorizontalAlignment="Right"
+                                   FontSize="18" 
+                                   Grid.Column="1" 
+                                   Grid.Row="0"/>
+                            <Label Content="Título: " 
+                               Grid.Column="0" 
+                               Grid.Row="1"/>
+                            <TextBlock Text="{Binding Titulo}" 
+                                   HorizontalAlignment="Right"
+                                   FontWeight="Bold"
+                                   Grid.Column="1" 
+                                   Grid.Row="1" />
+                            <Label Content="Professor: " 
+                               Grid.Column="0" 
+                               Grid.Row="2"/>
+                            <TextBlock Text="{Binding Professor}" 
+                                   HorizontalAlignment="Right"
+                                   FontWeight="Bold"
+                                   Grid.Column="1" 
+                                   Grid.Row="2"/>
+                            <Label Content="Carga Horária:" 
+                               Grid.Column="0" 
+                               Grid.Row="3"/>
+                            <TextBlock Text="{Binding CargaHoraria}" 
+                                   HorizontalAlignment="Right"
+                                   FontWeight="Bold"
+                                   Grid.Column="1" 
+                                   Grid.Row="3"/>
+                            <Label Content="Descrição:" 
+                                   Grid.Column="0" 
+                                   Grid.Row="4"/>
+                            <TextBlock Text="{Binding Descrição}" 
+                                       HorizontalAlignment="Stretch"
+                                       TextWrapping="Wrap"
+                                       Height="30"
+                                       MaxWidth="300"
+                                       FontWeight="Bold"
+                                       Grid.Column="0"
+                                       Grid.ColumnSpan="2"
+                                       Grid.Row="5"/>
+                                <TextBlock Grid.Column="0"  Text="_______________________________________________________________________"
+                                               Grid.ColumnSpan="2"
+                                               Grid.Row="6"
+                                               VerticalAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        </GroupBox>
+    </Grid>
+</mah:MetroWindow>

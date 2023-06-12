@@ -10,12 +10,18 @@
     <Compile Update="ViewModels\PageObjectsViewModel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ViewModels\PesquisasViewModel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ViewModels\PageObjectsViewModel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ViewModels\PesquisasViewModel.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

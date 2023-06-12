@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\App.xaml
-2-770505755
+3744979886
 3-764525587
-15-635433674
+16-1516318242
 205976375057
-MainWindow.xaml;ViewModels\PageObjectsViewModel.xaml;
+MainWindow.xaml;ViewModels\PageObjectsViewModel.xaml;ViewModels\PesquisasViewModel.xaml;
 
 False
 

@@ -6,6 +6,7 @@
         Xpath,
         CssSelector,
         Name,
+        ClassName,
         TagName,
         LinkText,
         PartialLinkText,

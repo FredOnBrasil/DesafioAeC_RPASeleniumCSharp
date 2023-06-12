@@ -163,7 +163,6 @@
                                     <TextBlock Grid.Column="0"  Text="_______________________________________________________________________"
                                                Grid.ColumnSpan="2"
                                                Grid.Row="4"
-                                               Background="DarkGray"
                                                VerticalAlignment="Center"/>
                                 </Grid>
                             </DataTemplate>

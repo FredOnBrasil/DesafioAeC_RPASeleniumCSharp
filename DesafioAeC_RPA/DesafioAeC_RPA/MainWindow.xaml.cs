@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DesafioAeC_RPA.Classes;
 using DesafioAeC_RPA.Models;
+using DesafioAeC_RPA.ViewModels;
 using MahApps.Metro.Controls;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Security.Policy;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using DesafioAeC_RPA.ViewModels;
-using OpenQA.Selenium.Support.UI;
-using DesafioAeC_RPA.Classes;
 
 namespace DesafioAeC_RPA
 {
@@ -20,7 +19,9 @@ namespace DesafioAeC_RPA
         internal IWebDriver driver;
         internal IJavaScriptExecutor JavaScriptExecutor;
         private readonly DatabaseManager _dbManagerPageObjects = new DatabaseManager(App.dataBasePObjectsPath);
+        private readonly DatabaseManager _dbManagerPesquisa = new DatabaseManager(App.dataBasePesquisasPath);
         private List<PageObjectsModel> identificadores = new List<PageObjectsModel>();
+        private PesquisaModel _pesquisaModel;
 
         public MainWindow()
         {
@@ -32,6 +33,7 @@ namespace DesafioAeC_RPA
 
             // Criar tabela (se não existir)
             _dbManagerPageObjects.CreateTablesPageObjects();
+            _dbManagerPesquisa.CreateTablesPesquisas();
 
             CarregaDadosIdentificadores();
 
@@ -40,7 +42,7 @@ namespace DesafioAeC_RPA
                 new Item { Nome = "Action 1: Abre Site", ExecuteCommand = new RelayCommand(Abrir_Site) },
                 new Item { Nome = "Action 2: Preenche Campo pesquisa", ExecuteCommand = new RelayCommand(PreencheCampoPorId) },
                 new Item { Nome = "Action 3: Clica em Pesquisar", ExecuteCommand = new RelayCommand(ClickPorXpath) },
-                new Item { Nome = "Action 6: Verifica resultados", ExecuteCommand = new RelayCommand(VerificaResultados) },
+                new Item { Nome = "Action 6: Recupera dados de Cursos", ExecuteCommand = new RelayCommand(EncontraResultadosPorClasse) },
             };
             DataContext = this;
 
@@ -54,6 +56,7 @@ namespace DesafioAeC_RPA
         private string nomeSite = "";
         private string CampoPesquisaId = "";
         private string xpathPesquisar = "";
+        private string classeResultado = "";
 
         private void CarregaDadosIdentificadores()
         {
@@ -71,6 +74,9 @@ namespace DesafioAeC_RPA
 
                 if (item.Tipo == "Xpath" && item.Nome.ToLower().Contains(nomeSite))
                     xpathPesquisar = item.Identificador;
+
+                if (item.Tipo == "ClassName" && item.Nome.ToLower().Contains(nomeSite))
+                    classeResultado = item.Identificador;
             }
         }
 
@@ -136,19 +142,106 @@ namespace DesafioAeC_RPA
             }
         }
 
-        private void VerificaResultados()
+        private void EncontraResultadosPorClasse()
         {
-            // Executar a lógica para o Item 3
-        }
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(6));
+            try
+            {
+                var CourseElements = wait.Until(d =>
+                {
+                    IReadOnlyCollection<IWebElement> courseElements = driver.FindElements(By.ClassName(classeResultado));
+                    if (courseElements.Count > 0)
+                        return courseElements;
+                    return null;
+                });
 
-        private void ExecutarJavascript(string script, IWebElement elemento)
-        {
-            JavaScriptExecutor = (IJavaScriptExecutor)driver;
-            script = script.Replace("\\", "");
+                int id = 0;
+                string titulo = null;
+                string professor = null;
+                string cargaHoraria = null;
+                string descricao = null;
+                foreach (IWebElement courseElement in CourseElements)
+                {
+                    int contador = 0;
+                    try
+                    {
+                        // Recuperar o título e a descrição do curso
+                        titulo = courseElement.FindElement(By.ClassName("busca-resultado-nome")).Text;
+                        descricao = courseElement.FindElement(By.ClassName("busca-resultado-descricao")).Text;
 
-            JavaScriptExecutor.ExecuteScript(script, elemento);
 
-            //Thread.Sleep(6000);
+                        // Clicar no título do curso para acessar a página individual
+                        courseElement.Click();
+
+                        // Aguardar o carregamento da página individual
+                        Thread.Sleep(3000);
+
+                        // Recuperar os dados do curso na página individual
+                        try
+                        {
+                            professor = driver.FindElement(By.CssSelector(".header-aula__nome-instrutor")).Text;
+                        }
+                        catch (NoSuchElementException)
+                        {
+                            try
+                            {
+                                professor = driver.FindElement(By.ClassName("instructor-title--name")).Text;
+                            }
+                            catch (NoSuchElementException)
+                            {
+                                professor = driver.FindElement(By.ClassName("formacao-instrutor-nome")).Text;
+
+                            }
+                        }
+
+                        try
+                        {
+                            cargaHoraria = driver.FindElement(By.CssSelector(".header-aula__duracao")).Text;
+                        }
+                        catch (NoSuchElementException)
+                        {
+                            cargaHoraria = driver.FindElement(By.ClassName("courseInfo-card-wrapper-infos")).Text;
+                        }
+
+                        resultados.Items.Add($"Título: {titulo}");
+                        resultados.Items.Add($"Professor: {professor}");
+                        resultados.Items.Add($"Carga Horária: {cargaHoraria}");
+                        resultados.Items.Add($"Descrição: {descricao}");
+                        resultados.Items.Add("_____________________________________________");
+
+                        // Criar objeto Curso e adicionar à lista
+                        _pesquisaModel = new PesquisaModel
+                        {
+                            Id = contador,
+                            Titulo = titulo,
+                            Professor = professor,
+                            CargaHoraria = cargaHoraria,
+                            Descrição = descricao
+                        };
+
+                        _dbManagerPesquisa.InsertPesquisa(_pesquisaModel);
+
+                        // Voltar à página de resultados
+                        driver.Navigate().Back();
+
+                        contador++;
+                    }
+                    catch (Exception e)
+                    {
+                        // Voltar à página de resultados
+                        driver.Navigate().Back();
+                    }
+
+                }
+
+                resultados.Items.Add($"Ação executada: " + DateTime.Now);
+
+            }
+            catch (Exception e)
+            {
+                resultados.Items.Add("Elemento não encontrado na tela.");
+                resultados.Items.Add("Erro ao selecionar em elemento." + e.Message);
+            }
         }
 
         private int currentItemIndex = 0;
@@ -221,6 +314,12 @@ namespace DesafioAeC_RPA
         {
             PageObjectsViewModel pageObjectsView = new PageObjectsViewModel();
             pageObjectsView.ShowDialog();
+        }
+
+        private void PesquisaData_OnClick(object sender, RoutedEventArgs e)
+        {
+            PesquisasViewModel pagePesquisasView = new PesquisasViewModel();
+            pagePesquisasView.ShowDialog();
         }
     }
 }

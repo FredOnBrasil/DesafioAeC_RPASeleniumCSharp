@@ -114,12 +114,20 @@
                 </StackPanel>
 
                 <StackPanel Grid.Column="2">
-                    <Image Height="42"
+                    <Button Height="30"
+                            Margin="3"
+                            Content="Dados Pesquisa"
+                            Click="PesquisaData_OnClick"
+                            Style="{DynamicResource MahApps.Styles.Button}"
+                            x:Name="PesquisaData">
+                    </Button>
+
+                    <Image Height="24"
                            Margin="6"
                            Source="Images/AeC.jpg"/>
 
-                    <Button Height="45"
-                            Margin="6"
+                    <Button Height="30"
+                            Margin="3"
                             Content="Page Objects"
                             Click="PageObjects_OnClick"
                             Style="{DynamicResource MahApps.Styles.Button}"
