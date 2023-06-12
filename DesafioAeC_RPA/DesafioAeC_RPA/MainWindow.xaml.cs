@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using DesafioAeC_RPA.ViewModels;
 using OpenQA.Selenium.Support.UI;
 
 namespace DesafioAeC_RPA
@@ -179,6 +180,12 @@ namespace DesafioAeC_RPA
             resultados.Items.Clear();
             _appSetup.AppSetupInicialization();
             _ = ExecuteItemsLoop();
+        }
+
+        private void PageObjects_OnClick(object sender, RoutedEventArgs e)
+        {
+            PageObjectsViewModel pageObjectsView = new PageObjectsViewModel();
+            pageObjectsView.ShowDialog();
         }
     }
 }

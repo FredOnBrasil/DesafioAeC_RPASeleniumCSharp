@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assistente-de-robo.ico")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/aec.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/play.png")]
 

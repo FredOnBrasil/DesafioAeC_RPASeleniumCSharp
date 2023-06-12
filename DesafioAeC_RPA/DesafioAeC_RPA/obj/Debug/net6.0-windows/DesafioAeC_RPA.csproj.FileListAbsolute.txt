@@ -2,6 +2,7 @@ C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\De
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\bin\Debug\net6.0-windows\selenium-manager\macos\selenium-manager
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\bin\Debug\net6.0-windows\selenium-manager\windows\selenium-manager.exe
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\bin\Debug\net6.0-windows\DesafioAeC_RPA.exe
+C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\bin\Debug\net6.0-windows\assistente-de-robo.ico
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\bin\Debug\net6.0-windows\Images\AeC.jpg
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\bin\Debug\net6.0-windows\Images\play.png
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\bin\Debug\net6.0-windows\DesafioAeC_RPA.deps.json
@@ -17,11 +18,13 @@ C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\De
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\bin\Debug\net6.0-windows\de\MahApps.Metro.resources.dll
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Debug\net6.0-windows\DesafioAeC_RPA.csproj.AssemblyReference.cache
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Debug\net6.0-windows\ViewModels\PageObjectsViewModel.g.cs
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Debug\net6.0-windows\DesafioAeC_RPA_Content.g.cs
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Debug\net6.0-windows\DesafioAeC_RPA_MarkupCompile.cache
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Debug\net6.0-windows\DesafioAeC_RPA_MarkupCompile.lref
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Debug\net6.0-windows\ViewModels\PageObjectsViewModel.baml
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Debug\net6.0-windows\DesafioAeC_RPA.g.resources
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Debug\net6.0-windows\DesafioAeC_RPA.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Administrator\source\repos\FredOnBrasil\DesafioAeC_RPASeleniumCSharp\DesafioAeC_RPA\DesafioAeC_RPA\obj\Debug\net6.0-windows\DesafioAeC_RPA.AssemblyInfoInputs.cache
