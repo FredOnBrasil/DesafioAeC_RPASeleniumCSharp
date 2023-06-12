@@ -8,6 +8,7 @@
         Name,
         TagName,
         LinkText,
-        PartialLinkText
+        PartialLinkText,
+        Url
     }
 }

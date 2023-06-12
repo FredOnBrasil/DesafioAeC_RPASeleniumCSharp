@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace DesafioAeC_RPA
@@ -15,5 +10,14 @@ namespace DesafioAeC_RPA
     {
         public static string UrlAlura = "https://www.alura.com.br";
         public static string UrlDefault = "https://www.google.com";
+
+        //configurando dados do banco de dados
+        public static string folderPath = Environment.CurrentDirectory;
+
+        public static string dataBasePObjectsName = "PageObjectsData.db";
+        public static string dataBasePObjectsPath = System.IO.Path.Combine(folderPath, dataBasePObjectsName);
+
+        public static string dataBasePesquisaName = "PesquisaData.db";
+        public static string dataBasePesquisasPath = System.IO.Path.Combine(folderPath, dataBasePesquisaName);
     }
 }

@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\DesafioAeC_RPA",
+    "\\DesafioAeC_RPA\\DesafioAeC_RPA"
   ],
+  "SelectedNode": "\\DesafioAeC_RPA\\DesafioAeC_RPA\\MainWindow.xaml.cs",
   "PreviewInSolutionExplorer": false
 }

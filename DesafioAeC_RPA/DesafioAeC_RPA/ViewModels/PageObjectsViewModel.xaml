@@ -8,7 +8,7 @@
         xmlns:enums="clr-namespace:DesafioAeC_RPA.Enums"
         mc:Ignorable="d"
         Title="Page Objects para execução do RPA" 
-        Height="450" 
+        Height="558" 
         Width="900"
         TitleBarHeight="30"
         ShowIconOnTitleBar="True"
@@ -42,8 +42,16 @@
                   Margin="6"
                   Style="{DynamicResource MahApps.Styles.GroupBox}">
             <StackPanel>
-                <Label Content="Selecione o tipo"
-                       Margin="3"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Selecione o tipo"
+                           Margin="3"/>
+
+                    <Label x:Name="IdRegistro"  
+                           Visibility="Hidden"
+                           Content="{Binding Id}"/>
+                </StackPanel>
+       
 
                 <ComboBox x:Name="cbxTipo"
                           Height="27"
@@ -68,27 +76,101 @@
                          BorderBrush="Gray"
                          Style="{DynamicResource MahApps.Styles.TextBox}"/>
 
-                <StackPanel>
+                <StackPanel Orientation="Horizontal">
                     <Button Content="Salvar"
-                            Height="27"
-                            Width="120"
-                            Margin="90,3"
-                            Style="{DynamicResource MahApps.Styles.Button}"/>
-
-                    <Button Content="Atualizar"
+                            x:Name="InserirRegistro"
                             Height="27"
                             Width="120"
                             Margin="3"
+                            Click="InserirRegistro_OnClick"
+                            Style="{DynamicResource MahApps.Styles.Button}"/>
+
+                    <Button Content="Atualizar"
+                            x:Name="AtualizarRegistro"
+                            Height="27"
+                            Width="120"
+                            Margin="3"
+                            Click="AtualizarRegistro_OnClick"
+                            Style="{DynamicResource MahApps.Styles.Button}"/>
+
+                    <Button Content="Deletar"
+                            x:Name="DeletarRegistro"
+                            Height="27"
+                            Width="120"
+                            Margin="3"
+                            Click="DeletarRegistro_OnClick"
                             Style="{DynamicResource MahApps.Styles.Button}"/>
                 </StackPanel>
 
-                <StackPanel MinHeight="120"
-                            MaxHeight="120"
+                <StackPanel HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
                             Margin="3">
                     <ListView Margin="6"
-                              Background="DarkGray"></ListView>
+                              MinHeight="240"
+                              MaxHeight="240"
+                              mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True"
+                              x:Name="ListViewPageObjects"
+                              BorderBrush="DarkOliveGreen"
+                              BorderThickness="1"
+                              SelectionChanged="ListViewPageObjects_OnSelectionChanged"
+                              Style="{DynamicResource MahApps.Styles.ListView.Virtualized}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Id: " 
+                               Grid.Column="0" 
+                               Grid.Row="0"/>
+                                    <TextBlock Text="{Binding Id}" 
+                                   HorizontalAlignment="Right"
+                                   FontSize="18" 
+                                   Grid.Column="1" 
+                                   Grid.Row="0"/>
+                                    <Label Content="Nome: " 
+                               Grid.Column="0" 
+                               Grid.Row="1"/>
+                                    <TextBlock Text="{Binding Nome}" 
+                                   HorizontalAlignment="Right"
+                                   FontWeight="Bold"
+                                   Grid.Column="1" 
+                                   Grid.Row="1" />
+                                    <Label Content="Identificador: " 
+                               Grid.Column="0" 
+                               Grid.Row="2"/>
+                                    <TextBlock Text="{Binding Identificador}" 
+                                   HorizontalAlignment="Right"
+                                   FontWeight="Bold"
+                                   Grid.Column="1" 
+                                   Grid.Row="2"/>
+                                    <Label Content="Tipo:" 
+                               Grid.Column="0" 
+                               Grid.Row="3"/>
+                                    <TextBlock Text="{Binding Tipo}" 
+                                   HorizontalAlignment="Right"
+                                   FontWeight="Bold"
+                                   Grid.Column="1" 
+                                   Grid.Row="3"/>
+                                    <TextBlock Grid.Column="0"  Text="_______________________________________________________________________"
+                                               Grid.ColumnSpan="2"
+                                               Grid.Row="4"
+                                               Background="DarkGray"
+                                               VerticalAlignment="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
-                
+
 
             </StackPanel>
         </GroupBox>
