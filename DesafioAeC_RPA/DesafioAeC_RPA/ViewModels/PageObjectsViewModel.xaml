@@ -43,18 +43,27 @@
                   Style="{DynamicResource MahApps.Styles.GroupBox}">
             <StackPanel>
                 <Label Content="Selecione o tipo"
-                       Margin="6"/>
+                       Margin="3"/>
 
                 <ComboBox x:Name="cbxTipo"
                           Height="27"
-                          Margin="6"
+                          Margin="3"
                           ItemsSource="{Binding Source={StaticResource DataFromEnumTipos}}"/>
 
-                <Label Content="Indique o identificador correspondente"
-                       Margin="6"/>
+                <Label Content="Indique o identificador correspondente(ex.: xpath = >>> '//*[@id=&quot;logo&quot;]')"
+                       Margin="3"/>
 
                 <TextBox x:Name="Identificador"
-                         Margin="6"
+                         Margin="3"
+                         Height="27"
+                         BorderBrush="Gray"
+                         Style="{DynamicResource MahApps.Styles.TextBox}"/>
+
+                <Label Content="Indique o nome do elemento da página(ex.: formato:  site-nomeElemento 'alura-botãoBuscar')"
+                       Margin="3"/>
+
+                <TextBox x:Name="NomeElemento"
+                         Margin="3"
                          Height="27"
                          BorderBrush="Gray"
                          Style="{DynamicResource MahApps.Styles.TextBox}"/>
@@ -63,19 +72,19 @@
                     <Button Content="Salvar"
                             Height="27"
                             Width="120"
-                            Margin="90,6"
+                            Margin="90,3"
                             Style="{DynamicResource MahApps.Styles.Button}"/>
 
                     <Button Content="Atualizar"
                             Height="27"
                             Width="120"
-                            Margin="6"
+                            Margin="3"
                             Style="{DynamicResource MahApps.Styles.Button}"/>
                 </StackPanel>
 
                 <StackPanel MinHeight="120"
                             MaxHeight="120"
-                            Margin="6">
+                            Margin="3">
                     <ListView Margin="6"
                               Background="DarkGray"></ListView>
                 </StackPanel>

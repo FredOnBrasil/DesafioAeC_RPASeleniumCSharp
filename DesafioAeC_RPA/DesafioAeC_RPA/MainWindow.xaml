@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DesafioAeC_RPA"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
-        xmlns:models="clr-namespace:DesafioAeC_RPA.Models"
+        xmlns:enums="clr-namespace:DesafioAeC_RPA.Enums"
         mc:Ignorable="d"
         Title="Desafio AeC RPA" 
         Height="600" 
@@ -21,7 +21,7 @@
                                 MethodName="GetValues" 
                                 ObjectType="{x:Type sys:Enum}">
                 <ObjectDataProvider.MethodParameters>
-                    <x:Type TypeName="models:Sites"></x:Type>
+                    <x:Type TypeName="enums:Sites"></x:Type>
                 </ObjectDataProvider.MethodParameters>
             </ObjectDataProvider>
 

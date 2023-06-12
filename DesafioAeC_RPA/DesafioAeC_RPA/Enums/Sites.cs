@@ -1,4 +1,4 @@
-﻿namespace DesafioAeC_RPA.Models
+﻿namespace DesafioAeC_RPA.Enums
 {
     public enum Sites
     {
