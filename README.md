@@ -1,9 +1,8 @@
 # DesafioAeC_RPASeleniumCSharp
-
+---
 Etapas do processo:
-* criação do repositório privado
-* clonagem usando Visual studio 2022
-* Iniciado desenvolvimento localmente
-* commits de alterações e desenvolvimentos após testes locais
-* adição de vídeos de funcionamento e explicações
-* compartilhamento para avaliação
+* 01 - criação do repositório privado
+* 02 - clonagem usando Visual studio 2022
+* 03 - Iniciado desenvolvimento localmente
+* 04 - commits de alterações e desenvolvimentos após testes locais
+* 05 - compartilhamento para avaliação
